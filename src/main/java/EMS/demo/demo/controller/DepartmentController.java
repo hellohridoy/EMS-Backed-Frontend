@@ -1,6 +1,6 @@
 package EMS.demo.demo.controller;
-
 import EMS.demo.demo.entity.Department;
+import EMS.demo.demo.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,28 +13,28 @@ import java.util.List;
 public class DepartmentController {
 
     @Autowired
-    private DepartmentController departmentService;
+    private DepartmentService departmentService;
 
-    @GetMapping
+    @GetMapping("")
     public List<Department> getAllDepartments() {
         return departmentService.getAllDepartments();
     }
 
-    @PostMapping
+    @PostMapping("")
     public ResponseEntity<Department> createDepartment(@RequestBody Department department) {
-        Department createdDepartment = departmentService.createDepartment(department).getBody();
+        Department createdDepartment = departmentService.createDepartment(department);
         return new ResponseEntity<>(createdDepartment, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Department> getDepartmentById(@PathVariable long id) {
-        Department department = departmentService.getDepartmentById(id).getBody();
+        Department department = departmentService.getDepartmentById(id);
         return ResponseEntity.ok(department);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Department> updateDepartment(@PathVariable long id, @RequestBody Department departmentDetails) {
-        Department updatedDepartment = departmentService.updateDepartment(id, departmentDetails).getBody();
+        Department updatedDepartment = departmentService.updateDepartment(id, departmentDetails);
         return ResponseEntity.ok(updatedDepartment);
     }
 

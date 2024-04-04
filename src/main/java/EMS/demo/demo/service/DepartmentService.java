@@ -1,7 +1,6 @@
 package EMS.demo.demo.service;
 
 import EMS.demo.demo.entity.Department;
-import EMS.demo.demo.entity.Designation;
 import EMS.demo.demo.exceptions.ResourceNotFountExceptions;
 import EMS.demo.demo.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;

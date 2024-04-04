@@ -16,12 +16,12 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @GetMapping
+    @GetMapping("")
     public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
 
-    @PostMapping
+    @PostMapping("")
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
         Employee createdEmployee = employeeService.createEmployee(employee);
         return new ResponseEntity<>(createdEmployee, HttpStatus.CREATED);
