@@ -8,6 +8,6 @@ import lombok.Data;
 public class EmployeeDto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    Long id;
     String employeeName;
 }

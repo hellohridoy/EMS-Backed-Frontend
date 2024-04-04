@@ -14,4 +14,7 @@ public class Designation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long roleId;
     private String roleName;
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
 }
